@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹性盒子</title>
+    <style>
+        .wrapper{
+            width: 40%;
+            height: 35%;
+            position: absolute;
+            top: 5rem;
+            left: 20%;
+            border: 1px solid black;
+            display: flex;
+        }
+       .left{
+           flex:0 0 120px;
+           padding: 10px;
+           box-sizing: border-box;
+           background-image: url("14.jpg");
+           background-size: 100% 100%;
+       }
+        .right{
+            flex: 1 1 auto;
+            font-size: 1em;
+            color: #fff;
+            background-color: #09C369;
+            /*border: 1px solid black;*/
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="left"></div>
+        <div class="right">
+            <p>姓名：猪小屁</p>
+            <p>年龄：1岁</p>
+            <p>人物简介：猪猪界的萌仔，致力于食品类研究一年多，四川火锅，北京烤鸭，陕西肉夹馍，广西米粉...没有哪一类食物没有研究过，对任何一种食物，一嗅便知其配料。作为某人最爱的宠物，深受宠爱。</p>
+        </div>
+    </div>
+</body>
+</html>

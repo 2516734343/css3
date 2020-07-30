@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            /*position: relative;*/
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: calc(50% - 150px);
+            left: calc(50% - 150px);
+            border-radius: 50%;
+            box-shadow: inset 0px 0px 50px #ffffff,
+                        inset 10px 0px 80px #f0f,
+                        inset -10px 0px 80px #0ff,
+                        inset 10px 0px 300px #f0f,
+                        inset -10px 0px 300px #0ff,
+                        0px 0px 50px #ffffff,
+                        -10px 0px 70px #f0f,
+                        10px 0px 70px #0ff;
+            transition: all .6s;
+        }
+        .sun{
+            width: 50px;
+            height: 50px;
+            /*position: absolute;*/
+            /*top: calc(50% - 50px);*/
+            /*left: calc(50%- 50px);*/
+            float: right;
+            margin-right: 200px;
+            margin-top: 200px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            /*border: 1px solid #ffffff;*/
+            background-color:#ffffff;
+            box-shadow: 0px 0px 100px 50px #ffffff,
+                        0px 0px 250px 125px #ff0;
+            transition: all .5s;
+        }
+        .plane{
+            width: 100px;
+            height: 100px;
+            margin-top: 200px;
+            margin-left: 150px;
+            float: left;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            box-shadow:inset 0px 0px 50px 0px #fff,
+                        inset 10px 0px 100px 0px #00ffff,
+                        inset -10px 0px 100px 0px greenyellow,
+                        inset 10px 0px 200px 0px #00ffff,
+                        inset -10px 0px 200px 0px greenyellow,
+                        0px 0px 50px #ffffff,
+                         -10px 0px 70px 0px #00ffff,
+                         10px 0px 70px 0px greenyellow;
+            transition: all .7s;
+        }
+        .heart{
+            width: 100px;
+            height: 100px;
+            margin-top: 50px;
+            margin-left: 100px;
+            /*border:  1px solid red;*/
+            background-color: #ffffff;
+            border-radius: 50%;
+            box-shadow: inset 0px 0px 100px #c81623,
+            inset 10px 0px 100px #ffff00,
+            inset -10px 0px 100px #ff5000,
+            inset 10px 0px 300px #ffff00,
+            inset -10px 0px 300px #ff5000,
+            0px 0px 50px #fff,
+            -10px 0px 70px #ffff00,
+            10px 0px 50px #ff5000;
+            transition: all .6s;
+        }
+        .box:hover{
+            transform: scale(0.5,0.5);
+        }
+        .sun:hover{
+            transform: scale(0.5,0.5);
+        }
+        .plane:hover{
+            box-shadow:inset 0px 0px 50px 0px #fff,
+            inset 10px 0px 100px 0px #09C369,
+            inset -10px 0px 100px 0px greenyellow,
+            inset 10px 0px 200px 0px #09C369,
+            inset -10px 0px 200px 0px greenyellow,
+            0px 0px 50px #ffffff,
+            -10px 0px 70px 0px #09C369,
+            10px 0px 70px 0px greenyellow;
+            transform: scale(1.5,1.5);
+        }
+        .heart:hover{
+            transform: scale(1.5,1.5);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="sun"></div>
+    <div class="plane"></div>
+    <div class="heart"></div>
+</body>
+</html>

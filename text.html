@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>text</title>
+    <style>
+        .wrapper{
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            position: absolute;
+            top: 100px;
+            left: 200px;
+            color: #000;
+            font-size: 80px;
+            /*text-shadow: 10px 10px 1px #000;*/
+            -webkit-text-stroke:2px transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">css3</div>
+<!--    text-shadow 10px 10px 3px #000  水平偏移量x 垂直偏移量y 模糊值blur 颜色-->
+<!--    浮雕:text-shadow:1px 1px #000,-1px -1px #fff;-->
+<!--    镂刻:text-shadow: 1px 1px #fff,-1px -1px #000;-->
+<!--    background-clip:text文字变成了背景的一部分 文字阴影在背景的上面-->
+
+<!--    描边：-->
+<!--    -webkit-text-stroke 粗细 颜色   color:transparent 时，效果是镂空的-->
+   //引入外部字体包
+    @font-face{
+        font-family:给字体包起的名字，如'abc'
+        src:url(文字格式) format(格式)
+    }
+    format() 字体格式提示器 加强浏览器对字体的识别
+    字体的格式:truetype 微软和苹果共同研发的字体格式 .ttf 引用到苹果和微软电脑
+                opentype 微软和abode    .opt
+                woff                    .woff   兼容性有点问题
+                                            .eat ie支持的
+                                            .svg h5
+    MIME (.ttf .txt .pdf )协议 定义了一些映射 浏览器-->操作系统
+    white-space:nowrap（不换行）/normal/break-all
+    tab-size
+    word-break:break-word(尽可能的保持英文单词的完整性)/keep-all(不换行)/break-all（到边界就换行，但英文单词会强制换行）
+    word-wrap:break-word
+    text-align
+    text-align-last 处理文字的最后一行
+    word-spacing
+    text-indent
+    vertical-align
+    text-size-adjust
+    columns :column-width column-count  不适合瀑布流布局
+    column-width:不能自适应列布局 多数柱高
+    column-gap:间隙 ie是16px
+    column-rule:和border一样
+    column-fill
+    column-span 贯穿整个列
+    column-break-before :always,总在元素之前断裂产生新列
+    column-break-after
+</body>
+</html>

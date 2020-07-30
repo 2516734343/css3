@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>box</title>
+    <style>
+        .wrapper{
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+            display: flex;
+        }
+        /*不用人为的改变宽度，无论加多少个都可以---->可动态增加导航栏*/
+        .item{   /*导航栏中的导航项,可动态添加*/
+            height: 30px;
+            line-height: 30px;
+            color: #fff;
+            font-size: 14px;
+            flex: 1 1 auto;
+            text-align: center;
+            background-color: #09C369;
+        }
+
+
+        .wrapper1{
+            width: 400px;
+            height: 300px;
+            border: 1px solid black;
+            display: flex;
+        }
+        .content{
+            flex: 1 1 auto;
+            background-color: #09C369;
+            border: 1px solid black;
+        }
+        .content:nth-of-type(3){
+            flex: 2 2 auto;
+        }
+        .content:nth-of-type(2){
+            flex: 0 0 200px;
+        }
+
+
+        .wrapper2{
+            resize: both;
+            overflow: hidden;
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+        }
+        .header, .footer,.left,.right{
+            /*不参与伸缩，保持自身的固定宽度*/
+            flex: 0 0 20%;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+        .contain{
+            flex: 1 1 auto;
+            display: flex;
+        }
+        .center{
+            flex: 1 1 auto;
+        }
+    </style>
+</head>
+<body>
+<!--    盒模型:-->
+<!--    w3c 关注内容宽高-->
+<!--    boxWidth = width+border*2+padding*2-->
+
+<!--    IE6怪异模式 关注整体宽高-->
+<!--    boxWidth = width-->
+<!--    contentWidth = width - border*2 - padding*2-->
+<!--    box-sizing:border-box 触发IE6混杂模式的盒模型  -&ndash;&gt;宽度不固定，但是内边距固定-->
+
+<!--    input天生带border-->
+
+<!--    overflow:hidden/visible（默认值）/scroll/auto（按需出现滚动条）   textarea里面的overflow的默认值是auto-->
+<!--    overflow上当overflow-x或者overflow-y之一设置为非visible的值时，另一个属性会自动设置为auto-->
+<!--    resize:用户可以调节元素大小,不能单独使用，必须和overflow:hidden一起使用  none/both/horizontal/vertical-->
+
+<!--    flex弹性盒子:-->
+
+<!--    设置到父元素上的：-->
+<!--    display:flex/inline-flex-->
+<!--    flex-direction: 主轴方向（与交叉轴方向相反） row（水平）/column（垂直）/row-reverse/column-reverse（反向）-->
+<!--    flex-wrap:nowrap(不换行)/wrap(换行)/wrap-reverse(倒着换行)-->
+<!--    justify-content:基于主轴做一个对齐方式 flex-start/flex-end(基于主轴的在另外一个方向对齐)/flex-center(基于主轴在主轴的中间)/space-between(两边空格)/space-around(元素（两边）之间的空隙相等)-->
+<!--    align-content:基于交叉轴的位置分配，必须作用到多行元素上-->
+<!--    align-items:基于交叉轴的位置分配 stretch（子元素没设置高度时，给父元素设置这个，会使子元素自动撑开到父元素的高度,即沿主轴方向拉伸到父级的大小）/flex-start/flex-end/flex-center/baseline(基于文字的底线对齐)/center-->
+<!--                &ndash;&gt;主要针对单行元素来处理对齐方式-->
+<!--    让一行元素全部水平垂直居中时，可以设置align-items:center;justify-content:center-->
+
+<!--    设置到子元素上的：-->
+<!--    order: 排列 谁添的小谁在前面，order默认值为0，逻辑上在小的的上一层-->
+<!--    align-self:子元素作为一个个体，和交叉轴的对齐方式flex-start/flex-end，若父级再设置一个align-items，则自己的权重大，若给父级再设置一个align-content，则听父级的-->
+<!--    flex-grow:伸 ，默认值0，当这一行还有空间的时候，根据自己的比例让盒子伸张到一定的程度瓜分剩余部分-->
+<!--    flex-shrink:缩 按照加权值进行缩小,乘的是真实的内容区的宽高，默认值是1,0是不参与压缩，结合width或者flex-basis写-->
+<!--    100*1+200*1+400*3=1500           真实内容区的大小*shrink值+....-->
+<!--     400*3-->
+<!--    -&#45;&#45;&#45;&#45;&#45;&#45; *100px =80  400-80=320px    100px-&ndash;&gt;多出来的值-->
+<!--     1500-->
+<!--    flex-basis:，默认值auto,同时设置了这个和width时，它的优先级高，width的一个取代值。在不设置width只设置basis，或者basis > width 的时候，元素宽度代表元素的最小宽度值；width和basis一起设置，并且basis < width 时，basis表示元素宽度的下限，width表示元素宽度的上限.-->
+<!--    无论什么情况下，被不换行内容撑开的容器，不会被压缩计算，设置换行了才能参与正常压缩-->
+
+<!--    flex-&#45;&#45;-->
+<!--         （1）可动态增加导航栏-->
+<!--    <div class="wrapper">-->
+<!--        <div class="item">1</div>-->
+<!--        <div class="item">2</div>-->
+<!--        <div class="item">3</div>-->
+<!--        <div class="item">4</div>-->
+<!--    </div>-->
+<!--        （2）等分布局，4等分 ，2等分...中间可以加margin-->
+<!--    <div class="wrapper1">-->
+<!--        <div class="content">1</div>-->
+<!--        <div class="content">2</div>-->
+<!--        <div class="content">3</div>-->
+<!--    </div>-->
+<!--        （3）布局之前用 float会产生浮动，对周边元素有影响,现在可以用flex，父级：dispaly:flex,align-items:center-->
+<!--        （4）圣杯模式布局-->
+    <div class="wrapper2">
+    <div class="header">header</div>
+    <div class="contain">
+        <div class="left">left</div>
+        <div class="center">content</div>
+        <div class="right">right</div>
+    </div>
+    <div class="footer">footer</div>
+</div>
+
+</body>
+</html>

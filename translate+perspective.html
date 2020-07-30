@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    translate
+    元素居中显示
+    left:50%;
+    top:50%;
+    transform:translateX(-50%)-->元素的50%
+    transform-origin:空间的变换中心
+    transform；perspective(800px)--->加到子元素上的，多个元素景深效果一样，要加到前面，调不了perspective-origin,是center
+
+
+    perspective  景深，设置到父级上，子级才有效果  结果基于元素在屏幕上的投影  可以看到不同元素在不同角度的位置---常用
+    perspective:800px
+    当给一个元素设置了perspective或者transform-style时，该元素就变成了参照物
+    transform:translateZ(800px)大到接近800的时候将看不到元素，
+    perspective-origin:center center --->默认值
+    transform-style:preserve-3d---元素创建三维空间  在元素的直接父级上加
+    3d旋转照片墙   旋转立体魔方
+    backface-visibility :hidden 让图片的后面隐藏
+</body>
+</html>

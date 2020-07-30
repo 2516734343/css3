@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>transition</title>
+</head>
+<body>
+    transition -->过渡动画
+    transition-property 变化的参数是什么，默认值是all
+    transition-duration 运动秒数
+    transition-timing-function  过渡动画的运动状态 ，默认值是ease平滑,   cubic-bezier  贝塞尔曲线:linear,ease,
+    transition-delay 等多少秒再过渡
+    如：transition width 2s linear 1s,height 1s
+
+    animation --->多状态改变的动画
+    @keyframes 兼容性--->-webkit-@keyframes
+    @keyframes run{
+        //关键帧  百分比定义运动顺序  百分数分割运动时间
+        0%{//from
+            left:0;
+            top:0;
+        }
+        25%{
+            left:100px;
+            top:0;
+        }
+        50%{
+            left:100px;
+            top:100px;
+        }
+        75%{
+            left:0;
+            top:100px;
+        }
+        100%{//to
+            left:0;
+            top:0;
+        }
+    }
+    animation:run 4s,....,cubic-bezier-->每一段的运动状态   (run--->animation-name)
+    animation-name
+    animation-duration
+    animation-timing-function
+    animation-delay
+    animation-iteration-count动画执行几次
+    animation-direction走关键帧的方向 normal/reverse/alternate(正着走一次，倒着走一次，所以要求运动次数要大于等于2)/alternate-reverse
+    animation-play-state检索或设置运动状态 paused
+    animation-fill-mode 让动画停留在某种状态none/forward(把元素变为运动之后的状态，在结束之后保留最后一帧的运动状态)/backwards(设置为动画开始之前的状态，在开始之前把元素设置为第一帧的状态)/both(设置元素状态为动画结束或开始的状态，等待运动时元素为第一帧状态，结束后元素为最后一帧状态)
+
+
+</body>
+</html>

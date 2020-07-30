@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>border</title>
+    <style>
+        .wrapper{
+            width: 100px;
+            height: 100px;
+            position:absolute;
+            left:calc(50% - 50px);
+            top:calc(50% - 50px);
+            border: 1px solid black;
+            border-radius:10px 20px 30px 40px / 20px 20px 30px 40px ; /*水平/垂直*/
+        /*}*/
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+    </div>
+    文本居中：
+    position:absolute
+    left:calc(50%-w/2);
+    top:calc(50%-h/2)
+    border
+
+    4个值：
+    先写上下再左右  最长是div的宽高
+    border-top-left-radius  10px 20px 水平和垂直方向的拉伸 先是水平半径 再垂直垂直半径
+    border-bottom-left-radius
+    border-radius:10px 20px 30px 40px / 10px 20px 30px 40px
+
+    box-shadow
+
+    z-ordering
+    阴影大小基于边框原来位置向两边同时模糊  越大越虚
+    哪个阴影最先设置，就在最上面
+    不写时默认是外阴影  内阴影inset
+    box-shadow:(inset) 阴影水平偏移量  垂直偏移量  blur模糊值   spread阴影扩大，基于原来的宽高大小增加你设置的大小，四个方向同时增大  阴影颜色
+
+    border-image
+    border-image:source slice repeat
+    border-image-source
+    border-image slice 数字和百分比，不能写像素，必须添 slice和border值一样，里面添加fill时，border设置成了背景色
+    border-image-repeat:stretch--默认值/round(拉伸到一定程度就铺)/repeat(空白区域就铺)/space(空白到一定程度就铺)
+    //以下俩单独写出来
+    border-image-outset 背景图片往外延伸
+    border-image-width border里面能行显示背景图片的宽度 默认值1，添auto时表示取slice的值加px
+
+
+    background:
+
+    background-image  放多张背景图片
+    调试background-size background-position
+    //只能放到background-image里面
+    linear-gradient() 线性渐变  线性的 to right/top/left/bottom /  to top right  /角度deg
+                        90deg ,#f0f 20px,#ff0 60px 颜色起止位置,20px之前是#f0f纯色，20~60是渐变的，60px以后#ff0纯色
+    radial-gradient()  经向渐变  放射性的  ellipse(椭圆) (closest-corner) /circle(圆) at right/20%/10px bottom/20%/10px ,#f0f,green,#0ff
+                        closest-corner  closest-side farthest-corner  farthest-side
+    repeating-linear-gradient()
+    repeating-radial-gradient()
+
+    background-origin : border-box/padding-box(默认值)/content-box ，配合background-position使用  origin是谁，position就相对于谁定位
+    background-clip ：表示背景图片从哪儿截断不显示，border-box(默认值)/padding-box/content-box/text（用文字的部分截背景图片，除了文字体的区域展示背景图片，其他都不展示，只有在-webkit下好使（-webkit-background-clip），要配合-webkit-text-fill-color:transparent使用）
+    background-attachment : 改变图片的定位属性,scroll(相对于容器定位)/local(相对于内容区定位)/fixed(相对于视口，图片永远不动)
+    background-size :
+    都是用一张图片填充背景，让图片的一条边和容器的一条边对齐，然后改变另外一条边的比例
+        cover：一定会让一张图片完整的填充满容器，而不改变图片的原始比例 ，存在超出的风险，一条边对齐，另外一条边大于等于容器大小，不会出现两张图片
+        contain ：不改变原有图片的原有比例，让容器包含一张完整的图片，存在repeat的风险，一条边对齐，另外一条边小于等于容器大小
+    如：
+        div 500 700
+        img 100 200 --->  500 1000一张图片完整的填充了cover
+                    --->350 700 会出现repeat 一条边对齐，另外一条边小于等于容器大小
+    background-repeat :no-repeat/repeat-x/repeat-y/round/space
+</body>
+</html>

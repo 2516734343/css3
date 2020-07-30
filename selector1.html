@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div + p{
+
+        }
+        div[data]
+        div[data~="a"]选择属性名为data，属性值存在一个独立的a的元素
+    </style>
+</head>
+<body>
+    //关系选择器模式
+    E + F  下一个满足条件的兄弟元素节点
+    E ~ F  下一个所有满足条件的兄弟元素节点
+    E > F   直接子元素选择器
+    //属性选择器
+    1、E[attr~='val'];选择属性名为attr，属性值存在一个独立的val的元素
+        如：div[data~="a"]
+    2、 E[attr|='val'] 选中以此值开头或者以此值加-开头的元素
+        如：div[class|'a']
+    3、E[attr^='val]  选中属性名为attr，属性值以val开头的元素
+        如：div[class^='a']
+    4、E[attr$='val'] 选中属性名为attr，属性值以val结尾的元素
+    5、E[attr*='val'] 选中属性名为attr，属性值里存在val的元素
+    //伪元素选择器
+    E::placeholder  设置输入框的placeholder的样式
+    E::selection  改变字体选中以后的样子 兼容性很好
+    只能在里面设置三个属性：color background-color text-shadow--文字阴影
+    //伪类选择器  被选中的元素的一种状态
+    E:not(s)(attr)  选中没有attr的元素
+    E:root   和html相等，root--根标签选择器,一般写作:root
+    E:target  被标记成锚点之后（location.hash = xxx(某结点的id值)）
+                //考虑其他类型的元素对它的元素
+    E:fist-child
+    E:last-child  不止看它这一类
+    E:only-child  选中独生的子元素E
+    E:nth-child(number/公式---n是自然数从0开始，公式中不能出现空格，css查数从1开始，奇数odd,偶数even)
+    E:nth-last-child 倒着查
+    E:first-of-type 是E这个类型的第一个孩子
+    E:last-of-type 是E这个类型的最后一个孩子
+    E:only-of-type 只有一个E这个类型的孩子
+    E:nth-of-type(number/公式) 对E这个类型的元素查
+    E:nth-of-last-type(number/公式)
+    E:empty 选中为空（没有节点）的E
+    E:checked 选中状态为checked的E元素
+    E:enabled  状态为enabled的E元素
+    E:disabled 状态为disabled的E元素
+    E:read-only 选中状态为readonly的元素
+    E:read-write 选中状态为readwrite的元素
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>step</title>
+    <style>
+        /*打字*/
+        @keyframes cursor {
+            0%{
+                border-left-color: rgba(0,0,0,0);
+            }
+            50%{
+                border-left-color: rgba(0,0,0,1);
+            }
+            100%{
+                border-left-color: rgba(0,0,0,0);
+            }
+
+        }
+        @keyframes typeRun {
+            0%{
+                left: 0;
+            }
+            100%{
+                left: 100%;
+            }
+        }
+        .type{
+            position: relative;
+            display: inline-block;
+            height: 100px;
+            font-size: 80px;
+            line-height: 100px;
+            font-family: monospace;
+        }
+        div.type::after{
+            content:'';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            height: 90px;
+            width: 100%;
+            background-color: #ffffff;
+            border-left: 2px solid black;
+            animation: cursor 1s steps(1,end) infinite,typeRun 14s steps(14,end) infinite;
+        }
+
+
+
+        /*钟表*/
+        @keyframes secondRun {
+            form{
+                transform: rotate(180deg);
+            }
+            100%{
+                transform: rotate(540deg);
+            }
+        }
+        @keyframes minuteRun {
+            0%{
+                transform: rotate(180deg);
+            }
+            100%{
+                transform: rotate(540deg);
+            }
+        }
+        @keyframes hourRun {
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(540deg);
+            }
+        }
+        .clock{
+            position: relative;
+            width: 512px;
+            height: 512px;
+            background-image: url("img/clock.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .second{
+            width: 16px;
+            height: 278px;
+            background-image: url("img/second.png");
+            -webkit-background-size: cover;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 180px;
+            left: 247px;
+            z-index: 3;
+            transform-origin: center 76px;
+            transform: rotate(180deg);
+            animation: secondRun 60s steps(60,end) infinite;
+        }
+        .minute{
+            width: 32px;
+            height: 218px;
+            background-image: url("img/minute.png");
+            -webkit-background-size: cover;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 240px;
+            left: 238px;
+            z-index: 2;
+            transform-origin: center 16px;
+            transform: rotate(180deg);
+            animation: minuteRun 3600s steps(60,end);
+        }
+        .hour{
+            width: 32px;
+            height: 148px;
+            background-image: url("img/hour.png");
+            -webkit-background-size: cover;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 240px;
+            left: 238px;
+            z-index: 1;
+            transform-origin: center 16px;
+            animation: hourRun  216000s steps(60,end);
+        }
+
+        /*跑马*/
+        @keyframes horseRun {
+            0%{
+                background-position: 0 0;
+            }
+            100%{
+                background-position: -2400px 0;
+            }
+        }
+        .horse{
+            width: 200px;
+            height: 100px;
+            background-image: url('img/horse.png');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            animation: horseRun 1s steps(12,end) infinite;
+        }
+    </style>
+</head>
+<body>
+    steps(1,start)  1----time
+    start 保留下一帧状态，直到这段动画时间结束
+    end  保留当前帧状态，直到这段动画时间结束 ，添一个forwards，常用。
+    steps(1,end);====step-end
+    steps(1,start);===step-start
+<!--    1、打字效果-->
+<!--    2、钟表效果  step  秒针，分针，transform:rotate(deg);transform-origin:0 0 ;旋转轴-->
+<!--    3、跑马效果  12个200px的图片-->
+
+<!--        <div class="type">abcdefjhijklmn</div>-->
+
+<!--    <div class="clock">-->
+<!--        <div class="second"></div>-->
+<!--        <div class="minute"></div>-->
+<!--        <div class="hour"></div>-->
+<!--    </div>-->
+
+    <div class="horse"></div>
+</body>
+</html>

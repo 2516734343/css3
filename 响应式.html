@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--    将页面的大小根据分辨率不同进行相应的调节 以展示给用户的大小感觉上差不多-->
+<!--    viewport默认视口(能看到的页面大小)大小 980px左右   content="视口宽度=设备宽度"  初始化缩放比（针对视口而言，和content效果一样）-->
+<!--    width = device-width:iphone或者ipad上，横竖屏的高度=竖屏时的宽度  不能自适应-->
+<!--    initial-scale=1.0   :windows手机上 ie浏览器上横竖屏的宽度=竖屏时的宽度  不能自适应-->
+<!--    user-scalable： 是否允许用户缩放 no-->
+<!--    适配各种不同分辨率的设备：-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <meta charset="UTF-8">
+    <title>响应式</title>
+</head>
+<body>
+    pc端--电脑  移动端---手机，平板   大小，分辨率
+    1css像素 并不完全相等于 设备像素--根据屏幕分辨率进行相应的调整
+    即：Css像素根据设备像素进行计算  1css 像素  == 1 是设备像素    设备的分辨率  dpi值来计算css像素真正展现的大小
+
+    响应式网页开发方法：
+    1、流体网络 ：可伸缩的网格 大小款到都是可伸缩的----可用flex或者百分比出来控制大小 float  布局上面元素大小不固定可伸缩
+    2、弹性图片  min-width:100%
+    3、媒体查询：让网页在 不同的终端是哪个展示效果相同  在不同的设备（大小不同分辨率不同）上面均展示合适的页面
+    4、主要断点：设备宽度的临界点
+    大小的区别--->宽度不同---->根据不同宽度展示不同的样式
+    响应式网页开发主要是在css样式上面进行操作
+
+    媒体查询：
+    媒体查询是向不同设备提供不同样式的一种方式，它为每种类型的用户提供了最佳的体验。
+
+    css2: media typemedia type(媒体类型)是css 2中的一个非常有用的属性，通过media type我们可以对不同的设备指定特定的样式，从而实现更丰富的界面。
+    css3: media querymedia query是CSS3对media type的增强，事实上我们可以将media query看成是media type+css属性(媒体特性Media features)判断。
+
+    媒体查询的引用方法有很多种：媒体查询不占用权重
+<!--    link标签<link rel="stylesheet" media="screen and (max-width:375px)" href="index.css">-->
+    @import url(example.css) screen and (width:800px);
+                ||
+                index.css
+    css3新增的@media  @media(max-width:375px){
+                                html,body{
+                                        width:100%;height:100%
+                                }
+                            }---->css样式引入
+    如：@media screen and (min-width: 600px) and (max-width:100px)；
+    没有or关键词可用于指定备用的媒体功能。相反，可以将备用功能以逗号分割列表的形式列出
+
+    要指定否定条件，可以在媒体声明中添加关键字not，不能在单个条件前使用not。
+
+    媒体查询规范还提供了关键字only，它用于向早期浏览器隐藏媒体查询。类似于not，该关键字必须位于声明的开头。
+    Only指定某种特定的媒体类型  为了兼容不支持媒体查询的浏览器
+
+    Rem：rem是CSS3新增的一个相对单位（root em，根em）相对的只是HTML根元素的font-size大小。--->结合媒体查询使用，在媒体查询里面设置html的字体大小
+    Em：em是相对长度单位。相对于当前对象内（本身）文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。
+    Px： px像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。
+    Vw：相对于视口的宽度。视口被均分为100单位的vw  移动端开发
+    Vh：相对于视口的高度。视口被均分为100单位的vh
+    Vmax： 相对于视口的宽度或高度中较大的那个。其中最大的那个被均分为100单位的vmax
+    Vmin：相对于视口的宽度或高度中较小的那个。其中最小的那个被均分为100单位的vmin
+
+    渐进增强 --->  iphone6 向上兼容  兼容最新设备
+    优雅降级 --->  开发通用版本  再兼容老版本   向下兼容
+
+    作业：实现bootstrap响应式网页  justifiy-content:space-between
+</body>
+</html>
